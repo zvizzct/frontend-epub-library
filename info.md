@@ -1,0 +1,21 @@
+- src
+    - auth
+        - layout
+        - pages
+        - routes
+    - library
+        - layout
+        - views
+        - pages
+        - components
+        - routes
+    - router
+        - shared
+    - api
+    - firebase
+    - hooks
+    - store
+        - auth
+        - library
+    - ui
+        - components
