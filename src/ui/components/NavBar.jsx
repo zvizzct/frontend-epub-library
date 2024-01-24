@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export const NavBar = () => {
   const [state, setState] = useState(false)
@@ -6,7 +7,7 @@ export const NavBar = () => {
 
   // Replace javascript:void(0) path with your path
   const navigation = [
-    { title: 'Customers', path: 'javascript:void(0)' },
+    { title: 'Books', path: '/books' },
     { title: 'Careers', path: 'javascript:void(0)' },
     { title: 'Guides', path: 'javascript:void(0)' },
     { title: 'Partners', path: 'javascript:void(0)' },
@@ -118,7 +119,7 @@ export const NavBar = () => {
               {navigation.map((item, idx) => {
                 return (
                   <li key={idx} className="text-gray-600 hover:text-indigo-600">
-                    <a href={item.path}>{item.title}</a>
+                    <Link to={item.path}>{item.title}</Link>
                   </li>
                 )
               })}

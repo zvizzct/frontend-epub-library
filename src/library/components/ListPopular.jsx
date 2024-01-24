@@ -39,7 +39,6 @@ export const ListPopular = ({ books, title, bgcolor }) => {
             className="border-none bg-gray-200 text-2xl cursor-pointer p-2 my-1 rounded-md w-25 h-12 outline-none shadow-md transition-all duration-200 ease-in hover:bg-gray-300 hover:scale-110 active:bg-gray-300"
             onClick={handlePrev}
           >
-            {/* Asegúrate de que las rutas de las imágenes sean correctas */}
             <img
               src="src/assets/arrow-left.png"
               className="w-10 h-10 cursor-pointer"
