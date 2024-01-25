@@ -9,11 +9,11 @@ export const childLibraryRoutes = [
     element: <LibraryPage />
   },
   {
-    path: '/books',
+    path: '/libros',
     element: <BooksPage />
   },
   {
-    path: '/books/detall/:id  ',
+    path: '/libros/detalle/:id',
     element: <BookPage />
   },
   {

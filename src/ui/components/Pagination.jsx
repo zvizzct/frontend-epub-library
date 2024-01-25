@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 export const Pagination = ({ currentPage, setCurrentPage }) => {
-  const [pages, setPages] = useState([1, 2, 3, '...', 8, 9, 10])
+  const [pages, setPages] = useState([1, 2, 3, 4, 5])
 
   const handleNextPage = () => {
     setCurrentPage(currentPage + 1)
@@ -12,7 +12,7 @@ export const Pagination = ({ currentPage, setCurrentPage }) => {
   }
 
   return (
-    <div className="max-w-screen-xl mx-auto mt-12 px-4 text-gray-600 md:px-8">
+    <div className="max-w-screen-xl mx-auto mt-12 px-4 text-gray-600 md:px-8 mb-5">
       <div
         className="hidden items-center justify-between sm:flex"
         aria-label="Pagination"

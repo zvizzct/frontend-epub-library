@@ -5,14 +5,12 @@ export const NavBar = () => {
   const [state, setState] = useState(false)
   const navRef = useRef()
 
-  // Replace javascript:void(0) path with your path
   const navigation = [
-    { title: 'Books', path: '/books' },
-    { title: 'Careers', path: 'javascript:void(0)' },
-    { title: 'Guides', path: 'javascript:void(0)' },
-    { title: 'Partners', path: 'javascript:void(0)' },
-    { title: 'Teams', path: 'javascript:void(0)' },
-    { title: 'Blog', path: 'javascript:void(0)' }
+    { title: 'Libros', path: '/libros' },
+    { title: 'Autores', path: '/autores' },
+    { title: 'Recomendaciones', path: '/descubre' },
+    { title: 'Favoritos', path: '/favoritos' },
+    { title: 'Mi cuenta', path: '/micuenta' }
   ]
 
   useEffect(() => {
@@ -36,14 +34,7 @@ export const NavBar = () => {
     <nav ref={navRef} className="bg-white w-full top-0 z-20">
       <div className="items-center px-4 max-w-screen-xl mx-auto md:px-8 lg:flex">
         <div className="flex items-center justify-between py-3 lg:py-4 lg:block">
-          <a href="javascript:void(0)">
-            <img
-              src="https://www.floatui.com/logo.svg"
-              width={120}
-              height={50}
-              alt="Float UI logo"
-            />
-          </a>
+          <Link to="/">Inicio</Link>
           <div className="lg:hidden">
             <button
               className="text-gray-700 outline-none p-2 rounded-md focus:border-gray-400 focus:border"

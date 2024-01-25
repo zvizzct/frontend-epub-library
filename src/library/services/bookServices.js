@@ -19,3 +19,11 @@ export const getBook = async (id) => {
     throw `Error getting book: ${err}`
   }
 }
+export const getFilters = async () => {
+  try {
+    const res = await axios.get(`http://localhost:3000/api/books/getfilters`)
+    return res.data
+  } catch (err) {
+    throw `Error getting filters: ${err}`
+  }
+}
