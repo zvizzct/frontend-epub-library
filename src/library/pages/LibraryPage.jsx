@@ -26,7 +26,7 @@ export const LibraryPage = () => {
     fetchBooks()
   }, [])
   return (
-    <div className="flex flex-col items-center mx-auto px-4 max-w-7xl">
+    <div className="flex flex-col items-center mx-auto px-4 max-w-7xl ">
       <NavBar />
       <HeroSection />
       <ListPopular books={popularBooks} title={'Más Populares'} />

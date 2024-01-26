@@ -25,7 +25,6 @@ export const GridBooks = ({ books }) => {
       try {
         const data = await getBooks(currentPage, 20)
         setbookList(data)
-        console.log(filters)
       } catch (error) {
         console.log(error)
       } finally {
@@ -40,20 +39,40 @@ export const GridBooks = ({ books }) => {
     navigate(`/libros/detalle/${id}`)
   }
 
-  // const handleFilter = (e) => {
-  //   setFilters({
-  //     ...filters,
-  //     [e.target.name]: e.target.value
-  //   })
-  // }
+  const handleFilter = (filterType, value) => {
+    setFilters({
+      ...filters,
+      [filterType]: value
+    })
+  }
 
   return (
     <section className="mt-10">
       <section className="flex justify-between items-center gap-2">
-        <FilterInput menuItems={filterGenres} filter="Género" />
-        <FilterInput menuItems={filterThemes} filter="Temas" />
-        <FilterInput menuItems={filterTypes} filter="Tipo" />
-        <FilterInput menuItems={filterLanguages} filter="Idioma" />
+        <FilterInput
+          menuItems={filterGenres}
+          filter="Género"
+          handleFilter={handleFilter}
+          filterType="genre"
+        />
+        <FilterInput
+          menuItems={filterThemes}
+          filter="Temas"
+          handleFilter={handleFilter}
+          filterType="theme"
+        />
+        <FilterInput
+          menuItems={filterTypes}
+          filter="Tipo"
+          handleFilter={handleFilter}
+          filterType="type"
+        />
+        <FilterInput
+          menuItems={filterLanguages}
+          filter="Idioma"
+          handleFilter={handleFilter}
+          filterType="type"
+        />
 
         <SearchBar />
       </section>

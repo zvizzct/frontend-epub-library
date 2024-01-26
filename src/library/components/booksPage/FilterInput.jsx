@@ -1,9 +1,14 @@
 import * as Select from '@radix-ui/react-select'
 import React from 'react'
 
-export const FilterInput = ({ menuItems, filter }) => {
+export const FilterInput = ({
+  menuItems,
+  filter,
+  handleFilter,
+  filterType
+}) => {
   return (
-    <Select.Root>
+    <Select.Root onValueChange={(value) => handleFilter(filterType, value)}>
       <div className="max-w-full min-w-40">
         <Select.Trigger className="w-full inline-flex items-center justify-between px-3 py-2 text-sm text-gray-600 bg-white border rounded-lg shadow-sm outline-none focus:ring-offset-2 focus:ring-indigo-600 focus:ring-2">
           <Select.Value placeholder={filter} />
@@ -29,8 +34,9 @@ export const FilterInput = ({ menuItems, filter }) => {
             position="popper"
             avoidCollisions={false}
             className="w-[var(--radix-select-trigger-width)] mt-3 overflow-y-auto bg-white border rounded-lg shadow-sm text-sm"
+            style={{ maxHeight: '400px' }}
           >
-            <Select.Viewport className="">
+            <Select.Viewport>
               {menuItems.map((item, idx) => (
                 <SelectItem key={idx} value={item}>
                   {item}
@@ -46,7 +52,6 @@ export const FilterInput = ({ menuItems, filter }) => {
 
 const SelectItem = React.forwardRef(
   ({ children, className, ...props }, forwardedRef) => {
-    // If you want to make this component more customizable you can use classnames and tailwind-merge library.
     return (
       <Select.Item
         className="flex items-center justify-between px-3 cursor-default py-2 duration-150 text-gray-600 data-[state=checked]:text-indigo-600 data-[state=checked]:bg-indigo-50 data-[highlighted]:text-indigo-600 data-[highlighted]:bg-indigo-50 data-[highlighted]:hover:text-indigo-600 data-[highlighted]:hover:bg-indigo-50 outline-none"
