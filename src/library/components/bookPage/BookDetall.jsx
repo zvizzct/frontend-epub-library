@@ -24,7 +24,7 @@ export const BookDetall = ({ id }) => {
   }
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="mx-auto p-4">
       <div className="bg-white shadow-lg rounded-lg overflow-hidden md:flex">
         <div className="md:w-1/2">
           <img className="" src={book.imageUrl} alt={book.title} />

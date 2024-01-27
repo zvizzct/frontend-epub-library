@@ -79,14 +79,14 @@ const genres = [
 
 export const GenresSection = () => {
   return (
-    <div className="mt-20 p-5 bg-gray-200 w-screen flex flex-col justify-center items-center gap-5 ">
-      <div className="flex flex-col items-center text-gray-800 font-semibold my-10 pt-20">
-        <h2 className="text-5xl font-semibold mb-2">Géneros que inspiran</h2>
+    <div className="w-screen mt-10 p-5 bg-gray-200 flex flex-col justify-center items-center gap-5 ">
+      <div className="flex flex-col items-center text-gray-800 font-semibold my-5 pt-20">
+        <h2 className="text-5xl font-semibold mb-4">Géneros que inspiran</h2>
         <p className="text-lg font-normal">
           Navega por géneros y encuentra tu próxima historia favorita.
         </p>
       </div>
-      <div className=" w-2/4 grid gap-5 justify-center items-center grid-cols-4 ">
+      <div className="  grid gap-10 justify-center items-center grid-cols-6 ">
         {genres.map((genre) => (
           <GenresCard
             key={genre.id}
