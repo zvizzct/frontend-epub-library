@@ -1,24 +1,22 @@
-import { StarRating } from './StarRating'
-
 export const BookCard = ({ book, onClick }) => {
-  const { title, authors, genres, themes, types, vote, imageUrl } = book
+  const { title, authors, genres, vote, imageUrl } = book
+  const firstAuthor = authors.find((author) => author.role === 'escritor') || {}
+
   return (
     <div
       onClick={onClick}
-      className="w-40 border border-gray-200 rounded-lg overflow-hidden shadow-md cursor-pointer flex flex-col justify-around"
+      className="bg-white w-52 h-[380px]  shadow-md hover:shadow-lg hover:bg-violet-100 hover:border-violet-300 transition duration-300 rounded-md cursor-pointer border border-gray-300"
     >
-      <img
-        src={imageUrl}
-        alt={`Portada de ${title}`}
-        className="w-full h-70 object-cover"
-      />
+      <div className="flex justify-center pt-5">
+        <img
+          src={imageUrl}
+          alt={`Portada de ${title}`}
+          className="max-h-60 rounded-md"
+        />
+      </div>
       <div className="p-4">
-        <h2 className="m-0 text-sm">{title}</h2>
-        <p className="my-1 text-sm text-gray-700 font-medium">{authors.role}</p>
-        <p className="my-1 text-xs text-gray-700 font-light italic">
-          {themes.map((theme) => theme.name).join(', ')}
-        </p>
-        {/* <StarRating votes={vote} /> */}
+        <h2 className="text-lg font-bold leading-tight">{title}</h2>
+        <p className="my-1 text-gray-700 font-medium">{firstAuthor.name}</p>
       </div>
     </div>
   )

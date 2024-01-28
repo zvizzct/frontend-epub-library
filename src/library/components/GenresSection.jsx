@@ -79,7 +79,7 @@ const genres = [
 
 export const GenresSection = () => {
   return (
-    <div className="w-screen mt-10 p-5 bg-gray-200 flex flex-col justify-center items-center gap-5 ">
+    <div className="w-screen mt-10 p-5 bg-gray-200 flex flex-col justify-center items-center gap-5 pb-32 ">
       <div className="flex flex-col items-center text-gray-800 font-semibold my-5 pt-20">
         <h2 className="text-5xl font-semibold mb-4">Géneros que inspiran</h2>
         <p className="text-lg font-normal">

@@ -3,7 +3,7 @@ import { BookCard } from '../BookCard'
 import { getBooks, getFilters } from '../../services/bookServices'
 import { Pagination } from '../../../ui/components/Pagination'
 import { useNavigate } from 'react-router-dom'
-import { FilterInput } from './FilterInput'
+import { FilterCheckbox } from './FilterCheckbox'
 import {
   filterGenres,
   filterLanguages,
@@ -11,6 +11,7 @@ import {
   filterTypes
 } from '../../services/filters'
 import { SearchBar } from '../../../ui/components/SearchBar'
+import { Filters } from './Filters'
 
 export const GridBooks = ({ books }) => {
   const [bookList, setbookList] = useState([])
@@ -47,49 +48,47 @@ export const GridBooks = ({ books }) => {
   }
 
   return (
-    <section className="mt-10">
-      <section className="flex justify-between items-center gap-2">
-        <FilterInput
-          menuItems={filterGenres}
-          filter="Género"
-          handleFilter={handleFilter}
-          filterType="genre"
-        />
-        <FilterInput
-          menuItems={filterThemes}
-          filter="Temas"
-          handleFilter={handleFilter}
-          filterType="theme"
-        />
-        <FilterInput
-          menuItems={filterTypes}
-          filter="Tipo"
-          handleFilter={handleFilter}
-          filterType="type"
-        />
-        <FilterInput
-          menuItems={filterLanguages}
-          filter="Idioma"
-          handleFilter={handleFilter}
-          filterType="type"
-        />
-
-        <SearchBar />
-      </section>
-
-      <section className="grid grid-cols-5 gap-10 mt-5 max-w-full">
-        {loading ? (
-          <p>Cargando...</p>
-        ) : (
-          bookList.map((book) => (
-            <BookCard
-              key={book.id}
-              book={book}
-              onClick={() => handleNavigation(book.id)}
-            />
-          ))
-        )}
-      </section>
+    <section className="mt-28 mb-16 w-screen">
+      <div className="flex flex-row gap-x-16 justify-start w-10/12 mt-10">
+        <section className="flex flex-col gap-2 w-2/12 ml-14">
+          <SearchBar />
+          <FilterCheckbox
+            items={filterGenres}
+            label={'Género'}
+            type={'checkbox'}
+          />
+          <FilterCheckbox
+            items={filterThemes}
+            label={'Tema'}
+            type={'checkbox'}
+          />
+          <FilterCheckbox
+            items={filterTypes}
+            label={'Tipo'}
+            type={'checkbox'}
+          />
+          <FilterCheckbox
+            items={filterLanguages}
+            label={'Idioma'}
+            type={'radio'}
+          />
+        </section>
+        <section className="flex flex-col flex-grow ml-4">
+          <div className="grid grid-cols-5 gap-10">
+            {loading ? (
+              <p>Cargando...</p>
+            ) : (
+              bookList.map((book) => (
+                <BookCard
+                  key={book.id}
+                  book={book}
+                  onClick={() => handleNavigation(book.id)}
+                />
+              ))
+            )}
+          </div>
+        </section>
+      </div>
       <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
     </section>
   )

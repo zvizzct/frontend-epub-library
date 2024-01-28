@@ -12,7 +12,7 @@ export const Pagination = ({ currentPage, setCurrentPage }) => {
   }
 
   return (
-    <div className="max-w-screen-xl mx-auto mt-12 px-4 text-gray-600 md:px-8 mb-5">
+    <div className="max-w-screen-md mx-auto mt-12 px-4 text-gray-600 md:px-8 mb-5">
       <div
         className="hidden items-center justify-between sm:flex"
         aria-label="Pagination"
